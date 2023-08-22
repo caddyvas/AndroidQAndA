@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidQAndA">
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardMainMenu"
             android:exported="true"
-            android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AndroidQAndA.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
