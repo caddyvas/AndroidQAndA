@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidQAndA">
         <activity
-            android:name=".DashboardMainMenu"
+            android:name=".ui.android.activity.DashboardMainMenuActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AndroidQAndA.NoActionBar">
@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.android.activity.AndroidQListActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

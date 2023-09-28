@@ -2,11 +2,61 @@
     <string name="app_name">AndroidQAndA</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Array of Questions for Android - part 1 -->
+    <string-array name="android_questions_1">
+        <item>What is Android?</item>
+        <item>App Components</item>
+        <item>What is Activity?</item>
+        <item>What is Fragment?</item>
+        <item>What is Intent?</item>
+        <item>What is Context?</item>
+        <item>What is Service?</item>
+        <item>What is Intent Service?</item>
+        <item>What is Broadcast Receiver?</item>
+        <item>What is ContentProvider?</item>
+        <item>What is Layouts?</item>
+        <item>What is Container?</item>
+        <item>What is Adapter?</item>
+        <item>What is AndroidManifest?</item>
+        <item>What are Application Widgets?</item>
+    </string-array>
+
+    <!-- Array of answers for Android - part 1-->
+    <string-array name="android_answers_1">
+        <item>Android is an open source and Linux-based Operating System for mobile devices such as smartphones and tablet computers. Android was developed by the Open Handset Alliance, led by Google, and other companies.</item>
+        <item>Activities\nServices\nBroadcast receivers\nContent Providers</item>
+        <item>An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI with setContentView(View).</item>
+        <item>A Fragment represents a reusable portion of your app\'s UI. A fragment defines and manages its own layout, has its own lifecycle, and can handle its own input events. Fragments can\'t live on their own. They must be hosted by an activity or another fragment. The fragment\'s view hierarchy becomes part of, or attaches to, the host\'s view hierarchy.</item>
+        <item>An intent is an abstract description of an operation to be performed. It can be used with startActivity to launch an Activity, broadcastIntent to send it to any interested BroadcastReceiver components, and Context.startService(Intent) or Context.bindService(Intent, BindServiceFlags, Executor, ServiceConnection) to communicate with a background Service.</item>
+        <item>Interface to global information about an application environment. This is an abstract class whose implementation is provided by the Android system. It allows access to application-specific resources and classes, as well as up-calls for application-level operations such as launching activities, broadcasting and receiving intents, etc.</item>
+        <item>A Service is an application component that can perform long-running operations in the background. It does not provide a user interface. Once started, a service might continue running for some time, even after the user switches to another application.</item>
+        <item>IntentService is an extension of the Service component class that handles asynchronous requests (expressed as Intents) on demand. Clients send requests through Context.startService(Intent) calls; the service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work.</item>
+        <item>A broadcast receiver is a component that lets the system deliver events to the app outside of a regular user flow so the app can respond to system-wide broadcast announcements. The system can deliver broadcasts even to apps that are not currently running. So, for example, an app can schedule an alarm to post a notification to tell the user about an upcoming event.
+            Because the alarm is delivered to a BroadcastReceiver in the app, there is no need for the app to remain running until the alarm goes off.\nStatic Broadcast: Declared in the manifest file and works even if the app is closed\nDynamic Broadcast: Works only if the app is active or minimized</item>
+        <item>Content providers can help an application manage access to data stored by itself or stored by other apps and provide a way to share data with other apps. They encapsulate the data and provide mechanisms for defining data security. Content providers are the standard interface that connects data in one process with code running in another process.</item>
+        <item>A layout defines the structure for a user interface in your app, such as in an activity. All elements in the layout are built using a hierarchy of View and ViewGroup objects. A View usually draws something the user can see and interact with. Whereas a ViewGroup is an invisible container that defines the layout structure for View and other ViewGroup objects</item>
+        <item>A container is a view used to contain other views. Android offers a collection of view classes that act as containers for views. These container classes are called layouts, and as the name suggests, they decide the organization, size, and position of their children. Containers are specialized than Layouts and can but do not have to extend a Layout. Some
+        extend ViewGroup indirectly e.g. ListView, some do not e.g. VideoView.</item>
+        <item>An Adapter object acts as a bridge between an AdapterView and the underlying data for that view. The Adapter provides access to the data items. The Adapter is also responsible for making a View for each item in the data set.</item>
+        <item>Every app project must have an AndroidManifest.xml file, with precisely that name, at the root of the project source set. The manifest file describes essential information about your app to the Android build tools, the Android operating system, and Google Play.</item>
+        <item>App widgets are miniature application views that can be embedded in other applications (such as the home screen) and receive periodic updates. These views are referred to as widgets in the user interface, and you can publish one with an app widget provider (or widget provider)</item>
+    </string-array>
+
+    <string-array name="android_questions_2">
+        <item>Activity Lifecycle</item>
+        <item>Fragment Lifecycle</item>
+        <item>Activity vs Fragment</item>
+        <item>Service Lifecycle</item>
+        <item>Service vs Intent Service</item>
+        <item>Bundle vs Intent</item>
+        <item>Serializable vs Parcelable</item>
+        <item>AsyncTask</item>
+        <item>Async vs Thread vs Service</item>
+        <item>Types of Intents</item>
+        <item>Dialog Boxes</item>
+        <item>Notifications</item>
+    </string-array>
 </resources>
