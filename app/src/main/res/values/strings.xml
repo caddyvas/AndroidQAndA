@@ -4,6 +4,8 @@
     <!-- Strings used for fragments for navigation -->
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="swipe_right">SWIPE RIGHT</string>
+    <string name="swipe_left">SWIPE LEFT</string>
 
     <!-- Array of Questions for Android - part 1 -->
     <string-array name="android_questions_1">
@@ -33,7 +35,7 @@
         <item>An intent is an abstract description of an operation to be performed. It can be used with startActivity to launch an Activity, broadcastIntent to send it to any interested BroadcastReceiver components, and Context.startService(Intent) or Context.bindService(Intent, BindServiceFlags, Executor, ServiceConnection) to communicate with a background Service.</item>
         <item>Interface to global information about an application environment. This is an abstract class whose implementation is provided by the Android system. It allows access to application-specific resources and classes, as well as up-calls for application-level operations such as launching activities, broadcasting and receiving intents, etc.</item>
         <item>A Service is an application component that can perform long-running operations in the background. It does not provide a user interface. Once started, a service might continue running for some time, even after the user switches to another application.</item>
-        <item>IntentService is an extension of the Service component class that handles asynchronous requests (expressed as Intents) on demand. Clients send requests through Context.startService(Intent) calls; the service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work.</item>
+        <item>IntentService is an extension of the Service component class that handles asynchronous requests (expressed as Intents) on demand. Clients send requests through Context.startService(Intent) calls; the service is started as needed, handles each Intent in turn using a worker thread, and stops itself when it runs out of work. This is now deprecated and is replaced by WorkManager.</item>
         <item>A broadcast receiver is a component that lets the system deliver events to the app outside of a regular user flow so the app can respond to system-wide broadcast announcements. The system can deliver broadcasts even to apps that are not currently running. So, for example, an app can schedule an alarm to post a notification to tell the user about an upcoming event.
             Because the alarm is delivered to a BroadcastReceiver in the app, there is no need for the app to remain running until the alarm goes off.\nStatic Broadcast: Declared in the manifest file and works even if the app is closed\nDynamic Broadcast: Works only if the app is active or minimized</item>
         <item>Content providers can help an application manage access to data stored by itself or stored by other apps and provide a way to share data with other apps. They encapsulate the data and provide mechanisms for defining data security. Content providers are the standard interface that connects data in one process with code running in another process.</item>
@@ -45,18 +47,78 @@
         <item>App widgets are miniature application views that can be embedded in other applications (such as the home screen) and receive periodic updates. These views are referred to as widgets in the user interface, and you can publish one with an app widget provider (or widget provider)</item>
     </string-array>
 
+    <!-- Array of Questions for Android - part 2 -->
     <string-array name="android_questions_2">
         <item>Activity Lifecycle</item>
         <item>Fragment Lifecycle</item>
         <item>Activity vs Fragment</item>
         <item>Service Lifecycle</item>
+        <item>Types of Services</item>
         <item>Service vs Intent Service</item>
         <item>Bundle vs Intent</item>
         <item>Serializable vs Parcelable</item>
-        <item>AsyncTask</item>
-        <item>Async vs Thread vs Service</item>
+        <item>Background Tasks</item>
+        <item>Thread vs Service</item>
         <item>Types of Intents</item>
-        <item>Dialog Boxes</item>
         <item>Notifications</item>
+    </string-array>
+
+    <!-- Array of answers for Android - part 2 -->
+    <string-array name="android_answers_2">
+        <item>Activity Lifecycle</item>
+        <item>Fragment Lifecycle</item>
+        <item>\u2022Activities are high level components which represent a single screen whereas Fragments are modular components used as part of activities.\n\u2022 Fragment is well-known for its reusability and it can have a more specific design to be reused in multiple activities\n
+        \u2022Multiple fragments can be created for one specific activity whereas one activity can be displayed at a time</item>
+        <item>Service Lifecycle</item>
+        <item>Android has 3 services: Foreground, Background and Bound Services\n\u2022Foreground Services notify the user about its ongoing operations. User interaction is present through notifications about ongoing task. Good example can be downloading a file, the user can check the progress in downloading, pause and resume the process.
+        \n\u2022Background Services, as the name says, there is no user intervention is needed as these services run as background tasks, user cannot access them. Example: Scheduled syncing or storing of data
+        \n\u2022Bound Services operate their tasks as long as any application component like activity is bound to it. More than one component is permitted to bind themselves with a service at a time. bindService() method is used to bind an application component with a service. Example: JobService class from JobScheduler API. The job service is bound to the system,
+            enabling the system to call its methods like onStartJob and is unbound when the job is stopped.  </item>
+        <item>\u2022Services can be used in tasks with no UI, should not be too long. If too long, threads within Service should be used.\n\u2022IntentService is good for long operations with no communication to main thread. In need of communication, main thread handler or broadcast intents can be used.\u2022Service runs on main thread of the application in background whereas the IntentService runs on a separate worker thread.
+        \n\u2022Service is triggered by calling startService() whereas IntentService is triggered using an Intent, it spawns a new worker thread and the method onHandleIntent() is called on this thread.\n\u2022To stop the Service, call stopService() or stopSelf(). IntentService stops the service after all start requests have been handled.</item>
+        <item>Bundle is a container for data that can be passed between different components whereas Intent is higher-level construct that represents an action or operation and it can carry a Bundle of data as part of that action.</item>
+        <item>\u2022Serializable is a Java interface that enables an object to be serialized, that is it can be converted into byte stream, stored in a file and transmitted over a network. The receiving end can convert the byte stream back into an object.\n\u2022Parcelable is an Android-specific interface that enables an object to be passed as a parameter from one activity to another without converting object into byte stream.
+            \n\u2022Serializable - Standard Java Interface, objects are serialized using the Java Serialization API\n\u2022Parcelable - Android-specific interface, objects are serialized using Android Parcelable API.\n\u2022Serializable objects are slower than parcelable, larger than parcelable objects, implements Serializable interface
+        \n\u2022Parcelable Objects are faster than Serializable, smaller than Serializable, extends the Parcelable class</item>
+        <item>Following are the different ways to handle background process:\nHandlerThread: It is used to create a background thread with a message loop. It is ideal for long-running operation that require continuous interaction with background thread.\n\nWorkManager: It is suitable for tasks that require guaranteed execution, such as sending logs or syncing data with server.
+        \n\nJobScheduler: This schedules jobs to run in the background under specific conditions like network availability or charging state. It is best suited for background tasks that require periodic executions.\n\nExecutors: It is part of Java concurrent framework, managing a pool of threads for background tasks. It is useful for running multiple background tasks concurrently.
+        \n\nHandler: Handler allows sending and processing message and runnable objects associated with a thread\'s Message Queue. This is suitable for background tasks that need to post results back to the main thread after the result of the execution.\nRxJava: It is a framework for composing asynchronous and event-based programs using observable sequences. This is a best fit for complex background tasks with reactive programing.</item>
+        <item>Thread vs Service</item>
+        <item>Explicit Intents: When user wants to explicitly specify the component (activity, service, or broadcast receiver) to be invoked. User knows the name of the target component within the application or when user wants to directly call a component in another app, provided user has information about its package name and class name.\n\n
+        Implicit Intents: This is used when user wants to describe a general action to be performed, leaving it to the Android system to determine which component should handle the action based on its capabilities and the filter criteria specified in the intent. Implicit Intents are commonly used to send email, open a web page, make a phone call.
+        Implicit filters rely on intent filters set by apps to declare their capabilities. These filters are defined in AndroidManifest.xml file, specify the actions, data types, and categories that an app can handle. </item>
+        <item>Notifications</item>
+    </string-array>
+
+    <string-array name="android_questions_3">
+        <item>Linear Layout</item>
+        <item>Relative Layout</item>
+        <item>Frame Layout</item>
+        <item>Constraint Layout</item>
+        <item>Table Layout</item>
+        <item>List View</item>
+        <item>Grid View</item>
+        <item>Recycler View</item>
+    </string-array>
+
+    <string-array name="android_answers_3">
+        <item>In the Linear Layout all the elements are arranged in linear manner i.e. all the children (elements) are arranged or displayed according to its orientation. There are two types of orientation:\n1. Vertical\n2. Horizontal\n
+        As the names imply these two orientations are used to arrange their children one after the other, in a line, either vertically or horizontally/nto arrange their children one after the other, in a line, either vertically </item>
+        <item>Relative Layout is a view group that shows child views in relative positions. The position of each view can be specified as relative to sibling elements (such as to the left-of or below another view) or in \n
+        positions relative to the parent RelativeLayout area (like aligned to the bottom, left or center). Relative Layout can eliminate nested view groups and keep your layout hierarchy flat, thereby improving performance.</item>
+        <item>Frame Layout is designed to block out an area on the screen to display a single item i.e. it is used to specify the position of multiple views placed on top of each other to represent a single view screen.\n
+        All the child views or elements are added in stack format so that the most recently added child will be shown on the top of the screen. We can add multiple children\'s views an control their positions only by using \n
+        gravity attributes in FrameLayout.</item>
+        <item>Constraint Layout allows you create large, complex layouts with a flat view hierarchy - no nested groups. It is like Relative Layout but is more flexible than RelativeLayout and easier to use with Android Studio\'s\n
+        Layout Editor. All the power of Constraint Layout is available directly from the Layout Editor\'s visual tools, because the layout API and the Layout Editor are specially built for each other. Entire UI layout can be built \n
+        by dragging elements instead of editing the XML.</item>
+        <item>Table Layout arranges its children by rows and columns. It consists of a number of TableRow objects, each defining a row. TableLayout containers do not display border lines for their rows, columns or cells. Each row has\n
+        zero or more cells; each cell can hold one View object. The table has as many columns as the row with the most cells. A table can leave cells empty.</item>
+        <item>List View is a ViewGroup that displays a vertical list of scrollable views where each view is placed one below the other. is used to display the list of items in multiple rows and contain an adapter that automatically\n
+            insert the items into the list. For displaying the items in the list method setAdapter() is used. This method conjoins an adapter with the list.</item>
+        <item>Grid View shows items in two-dimensional scrolling grid. The items in the grid come from the ListAdapter associated with this view. The main function of the adapter in GridView is to fetch data from a database or an array\n
+        and insert each piece of data in an appropriate item that will be displayed in Grid View. </item>
+        <item>Recycler View makes it easy to efficiently display large sets of data. You supply the data and define how each item looks, and the Recycle View library dynamically creates the elements when they are needed. Recycle View recycles\n
+        those individual elements. When an item scrolls off the screen, Recycler View does not destroy its view. Rather, Recycle View reuses the view for new items that gets scrolled on screen.</item>
     </string-array>
 </resources>

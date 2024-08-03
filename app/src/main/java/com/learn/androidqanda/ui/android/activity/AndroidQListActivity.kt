@@ -9,6 +9,7 @@ import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.LayoutPagerAndroidQAndABinding
 import com.learn.androidqanda.ui.android.adapter.AndroidFragmentPagerAdapter
 import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentOne
+import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentThree
 import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentTwo
 
 class AndroidQListActivity : AppCompatActivity(), View.OnClickListener {
@@ -28,6 +29,7 @@ class AndroidQListActivity : AppCompatActivity(), View.OnClickListener {
         val fragmentList = ArrayList<Fragment>()
         fragmentList.add(AndroidQAndAListFragmentOne())
         fragmentList.add(AndroidQAndAListFragmentTwo())
+        fragmentList.add(AndroidQAndAListFragmentThree())
 
         // create an adapter to show the corresponding fragment
         val adapter = AndroidFragmentPagerAdapter(this, fragmentList)

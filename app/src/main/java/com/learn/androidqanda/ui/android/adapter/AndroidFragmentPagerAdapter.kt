@@ -25,6 +25,9 @@ class AndroidFragmentPagerAdapter(fa: FragmentActivity, var fragmentList: ArrayL
             1 -> {
                 fragmentList[1]
             }
+            2 -> {
+                fragmentList[2]
+            }
             else -> {
                 AndroidQAndAListFragmentOne()
             }

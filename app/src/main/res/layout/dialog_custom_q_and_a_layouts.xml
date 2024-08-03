@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/androidDialogLayoutContainer"
+    android:id="@+id/androidCustomDialogLayoutContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="0dp"
@@ -9,15 +9,15 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/androidDialogLayout"
+        android:id="@+id/layoutDialogConstLayout"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         android:background="@drawable/custom_dialog_bg"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/androidDialogTextTitle"
+            android:id="@+id/layoutDialogTextTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_dialog_txt_bg"
@@ -28,47 +28,51 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/androidDialogImageClose"
+            android:id="@+id/layoutDialogImageClose"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="10dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/icon_x_48"
-            app:layout_constraintBottom_toBottomOf="@id/androidDialogTextTitle"
+            app:layout_constraintBottom_toBottomOf="@id/layoutDialogTextTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/androidDialogTextTitle" />
+            app:layout_constraintTop_toTopOf="@id/layoutDialogTextTitle" />
 
         <ImageView
-            android:id="@+id/androidDialogImageView"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="18sp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/androidDialogTextTitle"/>
-
-        <TextView
-            android:visibility="gone"
-            android:id="@+id/androidDialogTextMessage"
-            android:layout_width="match_parent"
+            android:id="@+id/layoutDialogImageView"
+            android:visibility="visible"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="18sp"
             android:layout_marginEnd="20dp"
-            android:justificationMode="inter_word"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDialogTextTitle"/>
+
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/layoutDialogTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="20dp"
+            android:scrollbars="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="40dp"
+            android:justificationMode="inter_word"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/androidDialogTextTitle" />
+            app:layout_constraintBottom_toBottomOf="@id/parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutDialogImageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/androidDialogButtonPrevious"
+        android:id="@+id/layoutDialogButtonPrevious"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -79,13 +83,13 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/androidDialogLayout"
-        app:layout_constraintEnd_toStartOf="@id/androidDialogButtonNext"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialogConstLayout"
+        app:layout_constraintEnd_toStartOf="@id/layoutDialogButtonNext"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/androidDialogLayout" />
+        app:layout_constraintTop_toBottomOf="@id/layoutDialogConstLayout" />
 
     <Button
-        android:id="@+id/androidDialogButtonNext"
+        android:id="@+id/layoutDialogButtonNext"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -96,9 +100,9 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/androidDialogLayout"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialogConstLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/androidDialogButtonPrevious"
-        app:layout_constraintTop_toBottomOf="@id/androidDialogLayout" />
+        app:layout_constraintStart_toEndOf="@id/layoutDialogButtonPrevious"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialogConstLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

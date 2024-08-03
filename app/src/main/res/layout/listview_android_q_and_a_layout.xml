@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/androidQAndAListViewTxtView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:layout_marginEnd="30dp"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ListView
         android:id="@+id/androidQAndAListView"
@@ -13,12 +25,10 @@
         android:layout_marginTop="30dp"
         android:divider="#ad5"
         android:background="@drawable/border_listview_bg"
-        android:layout_margin="25dp"
+        android:layout_margin="30dp"
         android:dividerHeight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

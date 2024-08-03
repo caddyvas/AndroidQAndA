@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.ListviewAndroidQAndALayoutBinding
 import com.learn.androidqanda.utilities.DialogBoxCustomHelper
@@ -22,7 +23,7 @@ class AndroidQAndAListFragmentOne : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         listViewAndroidQAndA = ListviewAndroidQAndALayoutBinding.inflate(layoutInflater)
         return listViewAndroidQAndA.root
     }
@@ -37,9 +38,11 @@ class AndroidQAndAListFragmentOne : Fragment() {
 
         // access the listView from xml file
         val mListView = view.findViewById<ListView>(R.id.androidQAndAListView)
+        val mTextView = view.findViewById<TextView>(R.id.androidQAndAListViewTxtView)
+        mTextView.text = resources.getString(R.string.swipe_right)
         arrayAdapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
+            R.layout.array_adapter_textview,
             androidQuestionArray
         )
         mListView.adapter = arrayAdapter
@@ -51,6 +54,7 @@ class AndroidQAndAListFragmentOne : Fragment() {
                 requireContext(),
                 androidQuestionArray,
                 androidAnswersArrays,
+                true,
                 position
             )
         }
