@@ -1,12 +1,26 @@
 package com.learn.androidqanda.ui.android.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.LayoutPagerGenericBinding
+import com.learn.androidqanda.ui.android.adapter.AndroidFragmentPagerAdapter
+import com.learn.androidqanda.ui.android.fragment.essentialcompfragments.EssentialScreenOrientationFragment
+
+/**
+ * onSaveInstanceState(Bundle outState)
+ * Called before your Activity/Fragment is destroyed (e.g. rotation, process death).
+ * You put values into the Bundle.
+ * Exists in both Activity and Fragment.
+ *
+ * onRestoreInstanceState(Bundle savedInstanceState)
+ * Only available in Activity, not in Fragment.
+ * Called after onStart() when the system passes back the saved state.
+ * Useful if you want to restore UI state after the layout is fully created.
+ */
+
 
 class AndroidEssentialsActivity: AppCompatActivity() {
 
@@ -26,6 +40,11 @@ class AndroidEssentialsActivity: AppCompatActivity() {
 
         // add fragments in viewpager adapter
         val fragmentList = ArrayList<Fragment>()
+        fragmentList.add(EssentialScreenOrientationFragment())
 
+        // create an adapter to show the corresponding fragment
+        val fragmentsAdapter = AndroidFragmentPagerAdapter(this, fragmentList)
+
+        viewPager.adapter = fragmentsAdapter
     }
 }
