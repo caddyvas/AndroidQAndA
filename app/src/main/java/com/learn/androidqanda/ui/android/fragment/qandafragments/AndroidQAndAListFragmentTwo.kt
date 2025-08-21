@@ -1,4 +1,4 @@
-package com.learn.androidqanda.ui.android.fragment
+package com.learn.androidqanda.ui.android.fragment.qandafragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,37 +12,30 @@ import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.ListviewAndroidQAndALayoutBinding
 import com.learn.androidqanda.utilities.DialogBoxCustomHelper
 
-/** This fragment consists of types of layouts
- * Linear Layout
- * Relative Layout
- * Frame Layout
- * Constraint Layout
- * Table Layout
- * Absolute Layout
- * List View
- * Grid View
+/**
+ * A simple [Fragment] subclass.
+ * Use the [AndroidQAndAListFragmentTwo.newInstance] factory method to
+ * create an instance of this fragment.
  */
 
-class AndroidQAndAListFragmentThree : Fragment() {
+class AndroidQAndAListFragmentTwo : Fragment() {
 
-    private lateinit var layoutAndroidQAndA: ListviewAndroidQAndALayoutBinding
+    private lateinit var listViewAndroidQAndA: ListviewAndroidQAndALayoutBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        layoutAndroidQAndA = ListviewAndroidQAndALayoutBinding.inflate(layoutInflater)
-        return layoutAndroidQAndA.root
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        listViewAndroidQAndA = ListviewAndroidQAndALayoutBinding.inflate(layoutInflater)
+        return listViewAndroidQAndA.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // use array adapter and define an array
+        // use arrayadapter and define an array
         val arrayAdapter: ArrayAdapter<*>
-        val androidQuestionArray = resources.getStringArray(R.array.android_questions_3)
-        val androidAnswersArrays = resources.getStringArray(R.array.android_answers_3)
+        val androidQuestionArray = resources.getStringArray(R.array.android_questions_2)
+        val androidAnswersArrays = resources.getStringArray(R.array.android_answers_2)
 
         // access the listView from xml file
         val mListView = view.findViewById<ListView>(R.id.androidQAndAListView)
@@ -58,13 +51,13 @@ class AndroidQAndAListFragmentThree : Fragment() {
         mListView.setOnItemClickListener { _, _, position, _ ->
             val element = arrayAdapter.getItem(position)
             println("element: ${element.toString()} is clicked ")
-            DialogBoxCustomHelper().showCustomAndroidQAndADialogForLayouts(
+            DialogBoxCustomHelper().showCustomAndroidQAndADialog(
                 requireContext(),
                 androidQuestionArray,
                 androidAnswersArrays,
+                false,
                 position
             )
         }
     }
-
 }

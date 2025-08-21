@@ -6,24 +6,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.learn.androidqanda.R
-import com.learn.androidqanda.databinding.LayoutPagerAndroidQAndABinding
+import com.learn.androidqanda.databinding.LayoutPagerGenericBinding
 import com.learn.androidqanda.ui.android.adapter.AndroidFragmentPagerAdapter
-import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentOne
-import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentThree
-import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentTwo
+import com.learn.androidqanda.ui.android.fragment.qandafragments.AndroidQAndAListFragmentOne
+import com.learn.androidqanda.ui.android.fragment.qandafragments.AndroidQAndAListFragmentThree
+import com.learn.androidqanda.ui.android.fragment.qandafragments.AndroidQAndAListFragmentTwo
 
-class AndroidQListActivity : AppCompatActivity(), View.OnClickListener {
+class AndroidQListActivity : AppCompatActivity(){
 
-    private lateinit var layoutPagerQAndABinding: LayoutPagerAndroidQAndABinding
+    private lateinit var layoutPagerQAndABinding: LayoutPagerGenericBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        layoutPagerQAndABinding = LayoutPagerAndroidQAndABinding.inflate(layoutInflater)
+        layoutPagerQAndABinding = LayoutPagerGenericBinding.inflate(layoutInflater)
         setContentView(layoutPagerQAndABinding.root)
 
+        supportActionBar?.title = "Android Essentials"
+
         // find the view pager that will allow the user to swipe between fragments
-        val viewPager: ViewPager2 = findViewById(R.id.androidQAndAPager)
+        val viewPager: ViewPager2 = findViewById(R.id.androidViewPager)
 
         // add fragments in viewpager adapter
         val fragmentList = ArrayList<Fragment>()
@@ -36,9 +38,5 @@ class AndroidQListActivity : AppCompatActivity(), View.OnClickListener {
 
         // set the adapter
         viewPager.adapter = adapter
-    }
-
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
     }
 }

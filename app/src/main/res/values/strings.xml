@@ -121,4 +121,19 @@
         <item>Recycler View makes it easy to efficiently display large sets of data. You supply the data and define how each item looks, and the Recycle View library dynamically creates the elements when they are needed. Recycle View recycles\n
         those individual elements. When an item scrolls off the screen, Recycler View does not destroy its view. Rather, Recycle View reuses the view for new items that gets scrolled on screen.</item>
     </string-array>
+
+    <!-- Android Architecture Patterns -->
+    <string name="architecture_mvvm">MVVM pattern is divided into three core components: Model, View and ViewModel.\n\n<b>Model</b> represents the data of your application. It interacts with data sources like database or network APIs for
+        data retrieval and manipulation. \n\n<b>View</b> layer handles the user interface elements and their layout. It displays data to the user and capture user interactions. The View focuses solely on presenting information and handling user
+        input.\n\n<b>ViewModel</b> layer acts as the intermediary between the Model and the View (loosely coupled). It handles the business logic, prepares the data for the View in a consumable way and expose observable data streams to the View.
+        \n\n<b>Advantages of MVVM:</b> Improved Testability, Maintainability, Flexibility, Data Persistence, Lifecycle Awareness, Data Binding, Modularity.</string>
+    <string name="architecture_mvp">MVP is an alternative for MVC pattern as in MVC, most of the core business logic resides in Controller. Due to tightly coupled UI and data access mechanisms, both Controller and View layer falls in same fragment or
+    activity. File grows bigger and it becomes difficult to main the code, hard to make changes in the features of the application.\n\nMVP pattern overcomes these challenges of MVC and provides an easy way to structure the project codes. It is widely
+    accepted is that it provides modularity, testability, and a more clean and maintainable codebase. It is composed of:\n<b>Model:</b> Layer for storing (updating) data. It is responsible for handling the domain logic (real world business rules) and communication
+    with the database and network layers.\n\n<b>View:</b> UI layer. It provides the visualization of the data and keep a track of the user\'s action in order to notify the Presenter.\n\n<b>Presenter:</b> Fetch the data from the model and applies the UI logic
+    to decide what to display. It manages the state of the View and take actions according to the user\'s input notification from the View. It is more of keeping business logic.\n\n<b>Key Points:</b>\n1. Communication between View-Presenter and Presenter-Model happens via an <b>interface (also called Contract)</b>
+    \n2. One Presenter class manages one View at a time. i.e. there is one-to-one relationship between Presenter and View.\n3. Model and View class does not have knowledge about each other\'s existence.</string>
+    <string name="architecture_mvc">MVC is a foundational architecture pattern. MVC has Model which holds the data storage, update and retrieval. View which represents UI components and is mainly for displaying data to the user and capture user interactions through events. Controller which acts as the central
+    communication hub.\n\nMVC in Android Context:\n<b>Model: </b> User data involve classes representing data objects, interacting with database or network APIs.\n\n<b>View: </b> This translates to your Activity or Fragment classes that handle UI layouts and interactions.\n\n
+    <b>Controller Logic: </b> while there is no dedicated Controller\'s class, some of this functionality might reside in your Activities or Fragments or separate helper classes. They handle user interactions, update the model and refresh the View.</string>
 </resources>

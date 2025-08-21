@@ -20,8 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.android.activity.AndroidQListActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.android.activity.AndroidQListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.android.activity.AndroidArchitectureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.android.activity.AndroidTitBitsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.android.activity.AndroidEssentialsActivity" />
     </application>
 
 </manifest>

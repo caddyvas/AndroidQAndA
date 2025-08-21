@@ -18,16 +18,33 @@ class DashboardMainMenuActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(dashboardMainMenu.root)
 
         dashboardMainMenu.gridCardAndroid.setOnClickListener(this)
-
+        dashboardMainMenu.gridCardArchitecture.setOnClickListener(this)
+        dashboardMainMenu.gridCardTitBits.setOnClickListener(this)
+        dashboardMainMenu.gridCardEssentials.setOnClickListener(this)
     }
 
     override fun onClick(view: View) {
+        var intent: Intent? = null
         when (view.id) {
             R.id.gridCardAndroid -> {
-                val intent =
+                intent =
                     Intent(this@DashboardMainMenuActivity, AndroidQListActivity::class.java)
-                startActivity(intent)
+            }
+
+            R.id.gridCardArchitecture -> {
+                intent =
+                    Intent(this@DashboardMainMenuActivity, AndroidArchitectureActivity::class.java)
+            }
+
+            R.id.gridCardTitBits -> {
+                intent = Intent(this@DashboardMainMenuActivity, AndroidTitBitsActivity::class.java)
+            }
+
+            R.id.gridCardEssentials -> {
+                intent =
+                    Intent(this@DashboardMainMenuActivity, AndroidEssentialsActivity::class.java)
             }
         }
+        startActivity(intent)
     }
 }

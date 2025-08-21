@@ -8,9 +8,9 @@ package com.learn.androidqanda.ui.android.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.learn.androidqanda.ui.android.fragment.AndroidQAndAListFragmentOne
+import com.learn.androidqanda.ui.android.fragment.qandafragments.AndroidQAndAListFragmentOne
 
-class AndroidFragmentPagerAdapter(fa: FragmentActivity, var fragmentList: ArrayList<Fragment>) :
+class AndroidFragmentPagerAdapter(fa: FragmentActivity, private var fragmentList: ArrayList<Fragment>) :
     FragmentStateAdapter(fa) {
 
     override fun getItemCount(): Int {
