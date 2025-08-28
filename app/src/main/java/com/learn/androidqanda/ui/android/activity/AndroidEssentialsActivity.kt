@@ -8,6 +8,8 @@ import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.LayoutPagerGenericBinding
 import com.learn.androidqanda.ui.android.adapter.AndroidFragmentPagerAdapter
 import com.learn.androidqanda.ui.android.fragment.essentialcompfragments.EssentialScreenOrientationFragment
+import com.learn.androidqanda.ui.android.fragment.essentialcompfragments.JetpackComponentsFragment
+import com.learn.androidqanda.ui.android.fragment.essentialcompfragments.jetpackcompsDemo.EssentialsDemoFragment
 
 /**
  * onSaveInstanceState(Bundle outState)
@@ -22,7 +24,7 @@ import com.learn.androidqanda.ui.android.fragment.essentialcompfragments.Essenti
  */
 
 
-class AndroidEssentialsActivity: AppCompatActivity() {
+class AndroidEssentialsActivity : AppCompatActivity() {
 
     private lateinit var layoutEssentialActivity: LayoutPagerGenericBinding
 
@@ -41,6 +43,8 @@ class AndroidEssentialsActivity: AppCompatActivity() {
         // add fragments in viewpager adapter
         val fragmentList = ArrayList<Fragment>()
         fragmentList.add(EssentialScreenOrientationFragment())
+        fragmentList.add(JetpackComponentsFragment())
+        fragmentList.add(EssentialsDemoFragment())
 
         // create an adapter to show the corresponding fragment
         val fragmentsAdapter = AndroidFragmentPagerAdapter(this, fragmentList)
