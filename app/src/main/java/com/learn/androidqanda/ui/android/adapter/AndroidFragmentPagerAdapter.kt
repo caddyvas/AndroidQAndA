@@ -22,12 +22,23 @@ class AndroidFragmentPagerAdapter(fa: FragmentActivity, private var fragmentList
             0 -> {
                 fragmentList[0]
             }
+
             1 -> {
                 fragmentList[1]
             }
+
             2 -> {
                 fragmentList[2]
             }
+
+            3 -> {
+                fragmentList[3]
+            }
+
+            4 -> {
+                fragmentList[4]
+            }
+
             else -> {
                 AndroidQAndAListFragmentOne()
             }

@@ -5,9 +5,23 @@
     android:background="#FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Info Button -->
+    <ImageButton
+        android:id="@+id/mvi_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
+        android:contentDescription="Info"
+        android:src="@drawable/info_outline_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"/>
+
     <!-- Name EditText -->
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/mvi_edit_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -19,17 +33,18 @@
         android:textColor="@color/black"
         android:background="@drawable/edittext_border"
         android:textSize="16sp"
-        android:hint="Enter Name"
+        android:hint="User Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Email EditText -->
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/mvi_edit_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Email"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:textColorHint="#888888"
         android:background="@drawable/edittext_border"
@@ -38,52 +53,42 @@
         android:padding="16dp"
         android:textSize="16sp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/editTextName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp" />
-
-    <!-- Phone EditText -->
-    <EditText
-        android:id="@+id/editTextPhone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Enter Phone"
-        android:minHeight="48dp"
-        android:textColorHint="#888888"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:padding="16dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:background="@drawable/edittext_border"
-        android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/editTextEmail"
+        app:layout_constraintTop_toBottomOf="@id/mvi_edit_user_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp" />
 
     <!-- Submit Button -->
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/mvi_buttonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        app:layout_constraintTop_toBottomOf="@id/editTextPhone"
+        app:layout_constraintTop_toBottomOf="@id/mvi_edit_password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp" />
 
-    <!-- TextView to display Name -->
-    <TextView
-        android:id="@+id/textViewResult"
+    <ProgressBar
+        android:id="@+id/mvi_progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your name will appear here"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/mvi_buttonSubmit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <!-- TextView to display Name -->
+    <TextView
+        android:id="@+id/mvi_textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/buttonSubmit"
+        app:layout_constraintTop_toBottomOf="@id/mvi_buttonSubmit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp" />

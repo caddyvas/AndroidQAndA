@@ -8,8 +8,10 @@ import com.learn.androidqanda.R
 import com.learn.androidqanda.databinding.LayoutPagerGenericBinding
 import com.learn.androidqanda.ui.android.adapter.AndroidFragmentPagerAdapter
 import com.learn.androidqanda.ui.android.fragment.architecturefragments.MVCFragment
+import com.learn.androidqanda.ui.android.fragment.architecturefragments.MVIFragment
 import com.learn.androidqanda.ui.android.fragment.architecturefragments.MVPFragment
 import com.learn.androidqanda.ui.android.fragment.architecturefragments.MVVMFragment
+import com.learn.androidqanda.ui.android.fragment.architecturefragments.architecturedemo.MVIDemoFragment
 
 class AndroidArchitectureActivity: AppCompatActivity() {
 
@@ -31,6 +33,8 @@ class AndroidArchitectureActivity: AppCompatActivity() {
         fragmentList.add(MVCFragment())
         fragmentList.add(MVPFragment())
         fragmentList.add(MVVMFragment())
+        fragmentList.add(MVIFragment())
+        fragmentList.add(MVIDemoFragment())
 
         // create an adapter to show the corresponding fragment
         val fragmentsAdapter = AndroidFragmentPagerAdapter(this, fragmentList)

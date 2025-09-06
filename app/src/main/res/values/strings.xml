@@ -136,6 +136,13 @@
     <string name="architecture_mvc">MVC is a foundational architecture pattern. MVC has Model which holds the data storage, update and retrieval. View which represents UI components and is mainly for displaying data to the user and capture user interactions through events. Controller which acts as the central
     communication hub.\n\nMVC in Android Context:\n<b>Model: </b> User data involve classes representing data objects, interacting with database or network APIs.\n\n<b>View: </b> This translates to your Activity or Fragment classes that handle UI layouts and interactions.\n\n
     <b>Controller Logic: </b> while there is no dedicated Controller\'s class, some of this functionality might reside in your Activities or Fragments or separate helper classes. They handle user interactions, update the model and refresh the View.</string>
+    <string name="architecture_mvi">MVI is used to design and organize the flow of data and
+        UI in a predictable and testable way. MVI is particularly popular in modern reactive programming (especially with Kotlin, RxJava, Coroutines, Flow, Jetpack Compose, etc.). This unidirectional data flow and distinct roles contribute
+        to easier understanding, building, and maintenance of MVI apps.\n\nMVI architecture promotes unidirectional (one-way) data flow:\nUser Intent → Model → New State → View → (User sees change and possibly triggers a new Intent).\n\n<b>Intent:</b>\n- Represents user actions or events. Ex: Button clicks, Scrolling, Input
+        text changes\n- Intents are what the user wants to do\n\n<b>Model:</b>\n- Contains business logic\n- It processes the intent, performs operations (like repository or API),
+    and returns a new state.\n- Pure and testable - no Android framework dependencies\n\n<b>View:</b>\n- Observes the state emitted by the model\n- Renders the UI based on the current state\n- Stateless and reactive: just displays what it is told to do so</string>
+    <string name="architecture_mvi_info"><b>Structure:</b>\n- LoginIntent (sealed Class)\n- LoginState (Data Class)\n- LoginViewModel\n- LoginScreen(UI)\n\nModel is more active - it processes user intents and return states. Often, the viewmodel itself or a StateProcessor is considered part of the model. The data layer (repository)
+    is called from the Model, but not the model itself.</string>
 
     <!-- Jetpack components - Essentials-JetpackComponentsFragment -->
     <string name="essentials_jc_generic"><b>Remember &amp; RememberSaveable</b>\nIn Android development (specifically with Jetpack Compose), remember and rememberSaveable are both used to store state in composables, but they differ in how long that state is retained and what survives configuration
